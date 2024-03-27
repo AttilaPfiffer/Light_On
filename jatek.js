@@ -47,6 +47,7 @@ function szinValasztas(){
 function kattintasEsemeny(){
      $(".gomb").eq(0).on("click",function(){
         $(".gomb").eq(1).css("background-color","yellow")
+        $(".gomb").eq(3).css("background-color","yellow")
      });   
 }
     
