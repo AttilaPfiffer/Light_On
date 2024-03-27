@@ -2,6 +2,7 @@ import { lista } from "./adat.js";
 
 function main() {
     megjelenites();
+    kattintasEsemeny();
 }
 
 function megjelenites() {
@@ -24,7 +25,7 @@ function lightOnGeneralas() {
     const TER = $(".teljes")
     let txt = "";
     for (let index = 0; index < lista.length; index++) {
-        txt += `<div class="gomb">1</div>` ;
+        txt += `<div class="gomb"></div>` ;
     }
     console.log(lista);
     TER.html(txt)
@@ -42,7 +43,12 @@ function szinValasztas(){
         
     }
 }
-    
+ 
+function kattintasEsemeny(){
+     $(".gomb").eq(0).on("click",function(){
+        $(".gomb").eq(1).css("background-color","yellow")
+     });   
+}
     
 
 

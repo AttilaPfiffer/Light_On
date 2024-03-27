@@ -2,11 +2,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
+    padding: 10px;
 }
 
 .gomb {
-    border: 1px solid black;
-    border-radius: 120px;
+    height: 100px;
+    width: 100px;
+    background-color: #bbb;
+    border-radius: 50%;
+    
 }
 
 .gombsarga {
