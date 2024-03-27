@@ -7,6 +7,7 @@ function main() {
 function megjelenites() {
     veletlenFeltoltes()
     lightOnGeneralas()
+    szinValasztas();
 }
 
 function veletlenFeltoltes() {
@@ -22,20 +23,27 @@ function veletlenFeltoltes() {
 function lightOnGeneralas() {
     const TER = $(".teljes")
     let txt = "";
-    veletlenFeltoltes();
     for (let index = 0; index < lista.length; index++) {
         txt += `<div class="gomb">1</div>` ;
-        const GOMBMEGFOG = $(".gomb");
-        if (lista[index] === 1){
-            $(GOMBMEGFOG).css("background-color", "yellow")
-        }else{
-            GOMBMEGFOG.addClass(".gombzold")
-        }
     }
+    console.log(lista);
     TER.html(txt)
-    return txt
+    
     
 }
+
+function szinValasztas(){
+    for (let index = 0; index < lista.length; index++) {
+        if(lista[index] === 1){
+            $(".gomb").eq(index).css("background-color","yellow");
+        } else {
+            $(".gomb").eq(index).css("background-color","green");
+        }
+        
+    }
+}
+    
+    
 
 
 
