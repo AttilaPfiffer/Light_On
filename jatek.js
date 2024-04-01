@@ -3,6 +3,7 @@ import { lista } from "./adat.js";
 function main() {
     megjelenites();
     kattintasEsemeny();
+    
 }
 
 function megjelenites() {
@@ -33,6 +34,17 @@ function lightOnGeneralas() {
     
 }
 
+function eredmeny(){
+  const mindenEggyezik = new Set(lista).size === 1;
+  console.log(mindenEggyezik);
+  if(mindenEggyezik === true) {
+    alert("Nyertel!")
+  }
+    
+}
+
+
+
 function szinValasztas(){
     for (let index = 0; index < lista.length; index++) {
         if(lista[index] === 1){
@@ -45,13 +57,17 @@ function szinValasztas(){
 }
  
 function kattintasEsemeny(){
+     eredmeny();
      $(".gomb").eq(0).on("click",function(){
         $(".gomb").eq(0).css("background-color","yellow")
         $(".gomb").eq(1).css("background-color","yellow")
         $(".gomb").eq(3).css("background-color","yellow")
      });   
 }
-    
+
+
+
+
 
 
 
