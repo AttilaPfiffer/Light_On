@@ -57,11 +57,13 @@ function szinValasztas(){
 }
  
 function kattintasEsemeny(){
-     eredmeny();
-     $(".gomb").eq(0).on("click",function(){
-        $(".gomb").eq(0).css("background-color","yellow")
-        $(".gomb").eq(1).css("background-color","yellow")
-        $(".gomb").eq(3).css("background-color","yellow")
+    eredmeny();
+    $(".gomb").eq(0).on("click",function(event){
+       if($(".gomb").eq(0).css("background-color","yellow")){
+            $(".gomb").eq(0).css("background-color","green")
+            $(".gomb").eq(1).css("background-color","green")
+            $(".gomb").eq(3).css("background-color","green")   
+        }
      });   
 }
 
