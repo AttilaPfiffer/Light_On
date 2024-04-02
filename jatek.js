@@ -59,26 +59,14 @@ function szinValasztas(){
 function kattintasEsemeny(){
     const kattintasHang = new Audio(`kattintasHang.wav`);
     eredmeny();
-    $(".gomb").eq(0).on("click", function(){
-        kattintasHang.play();
-        if($(".gomb").eq(0).css("background-color") === "yellow"){
-            $(".gomb").eq(0).css("background-color","green")
-            $(".gomb").eq(1).css("background-color","green")
-            $(".gomb").eq(3).css("background-color","green")   
-            lista[0] = 2
-            lista[1] = 2
-            lista[3] = 2
-            console.log(lista);
+    const jatek = $(".gomb").on("click",function(event){
+       kattintasHang.play();
+        if ($(this).css("background-color") === "rgb(0, 128, 0)") {
+            $(this).css("background-color", "yellow");
         } else {
-            $(".gomb").eq(0).css("background-color","yellow")
-            $(".gomb").eq(1).css("background-color","yellow")
-            $(".gomb").eq(3).css("background-color","yellow")  
-            lista[0] = 1
-            lista[1] = 1
-            lista[3] = 1
-            console.log(lista);
-        }
-    });
+            $(this).css("background-color", "green");
+    }
+     });   
 }
 
 
