@@ -34,13 +34,17 @@ function lightOnGeneralas() {
     
 }
 
-function ujJatek(){
-    const TER = $(".teljes") 
-    const UJ_JATEK_BTN = $(`<button class="ujJatekBtn">Uj Jatek!</button>`);
-    TER.append(UJ_JATEK_BTN);
-
-
+function ujJatek() {
+    const FOOTER = $("footer");
+    const UJ_JATEK_BTN_DIV = $('<div class="ujJatekDiv">');
+    const UJ_JATEK_BTN = $('<button class="ujJatekBtn">Uj Jatek!</button>');
+    UJ_JATEK_BTN_DIV.append(UJ_JATEK_BTN);
+    FOOTER.prepend(UJ_JATEK_BTN_DIV);
+    UJ_JATEK_BTN.eq(0).on("click",function(){
+        location.reload();
+    });
 }
+
 
 
 function eredmeny(){
