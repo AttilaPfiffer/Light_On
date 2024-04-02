@@ -59,9 +59,9 @@ function szinValasztas(){
 function kattintasEsemeny(){
     const kattintasHang = new Audio(`kattintasHang.wav`);
     eredmeny();
-    $(".gomb").eq(0).on("click",function(event){
-       kattintasHang.play();
-       if($(".gomb").eq(0).css("background-color","yellow")){
+    $(".gomb").eq(0).on("click", function(){
+        kattintasHang.play();
+        if($(".gomb").eq(0).css("background-color") === "yellow"){
             $(".gomb").eq(0).css("background-color","green")
             $(".gomb").eq(1).css("background-color","green")
             $(".gomb").eq(3).css("background-color","green")   
@@ -78,7 +78,7 @@ function kattintasEsemeny(){
             lista[3] = 1
             console.log(lista);
         }
-     });   
+    });
 }
 
 
