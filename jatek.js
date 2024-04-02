@@ -2,14 +2,15 @@ import { lista } from "./adat.js";
 
 function main() {
     megjelenites();
-    kattintasEsemeny();
     
 }
 
 function megjelenites() {
-    veletlenFeltoltes()
-    lightOnGeneralas()
+    veletlenFeltoltes();
+    lightOnGeneralas();
     szinValasztas();
+    ujJatek();
+    kattintasEsemeny();
 }
 
 function veletlenFeltoltes() {
@@ -31,8 +32,16 @@ function lightOnGeneralas() {
     console.log(lista);
     TER.html(txt)
     
-    
 }
+
+function ujJatek(){
+    const TER = $(".teljes") 
+    const UJ_JATEK_BTN = $(`<button class="ujJatekBtn">Uj Jatek!</button>`);
+    TER.append(UJ_JATEK_BTN);
+
+
+}
+
 
 function eredmeny(){
   const mindenEggyezik = new Set(lista).size === 1;
@@ -40,7 +49,6 @@ function eredmeny(){
   if(mindenEggyezik === true) {
     alert("Nyertel!")
   }
-    
 }
 
 
@@ -62,6 +70,7 @@ function kattintasEsemeny(){
     // 1 yellow
     // 2 green
     $(".gomb").eq(0).on("click", function(event) {
+        kattintasHang.play();
         let backgroundColor = $(".gomb").eq(0).css("background-color");
         if (backgroundColor === "rgb(255, 255, 0)") {
             $(".gomb").eq(0).css("background-color", "green");
