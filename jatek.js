@@ -27,7 +27,7 @@ function lightOnGeneralas() {
     const TER = $(".teljes")
     let txt = "";
     for (let index = 0; index < lista.length; index++) {
-        txt += `<div class="gomb"></div>` ;
+        txt += `<div class="gomb" id="${index}"></div>` ;
     }
     console.log(lista);
     TER.html(txt)
@@ -70,227 +70,36 @@ function szinValasztas(){
  
 function kattintasEsemeny(){
     const kattintasHang = new Audio(`kattintasHang.wav`);
-    eredmeny();
+
     // 1 yellow
     // 2 green
-    $(".gomb").eq(0).on("click", function(event) {
+    $(".gomb").on("click", function(event) {
         kattintasHang.play(`kattintasHang.wav`);
-        eredmeny();
-        let backgroundColor = $(".gomb").eq(0).css("background-color");
-        if (backgroundColor === "rgb(255, 255, 0)") {
-            $(".gomb").eq(0).css("background-color", "green");
-            $(".gomb").eq(1).css("background-color", "green");
-            $(".gomb").eq(3).css("background-color", "green");
-            lista[0] = 2
-            lista[1] = 2
-            lista[3] = 2
-        } else {
-            $(".gomb").eq(0).css("background-color", "yellow");
-            $(".gomb").eq(1).css("background-color", "yellow");
-            $(".gomb").eq(3).css("background-color", "yellow");
-            lista[0] = 1
-            lista[1] = 1
-            lista[3] = 1
-            
-        }
+       let aktindex = Number(event.target.id);
+       console.log(aktindex+1);
+       ellenkezeljereValt(aktindex)
+       ellenkezeljereValt(aktindex-3)
+       ellenkezeljereValt(aktindex+3)
+       ellenkezeljereValt(aktindex-1)
+       ellenkezeljereValt(aktindex+1)
     
     });
-    $(".gomb").eq(1).on("click", function(event) {
-        kattintasHang.play(`kattintasHang.wav`);
-        eredmeny();
-        let backgroundColor = $(".gomb").eq(1).css("background-color");
-        if (backgroundColor === "rgb(255, 255, 0)") {
-            $(".gomb").eq(1).css("background-color", "green");
-            $(".gomb").eq(0).css("background-color", "green");
-            $(".gomb").eq(2).css("background-color", "green");
-            $(".gomb").eq(4).css("background-color", "green");
-            lista[0] = 2
-            lista[1] = 2
-            lista[2] = 2
-            lista[4] = 2
-        } else {
-            $(".gomb").eq(1).css("background-color", "yellow");
-            $(".gomb").eq(0).css("background-color", "yellow");
-            $(".gomb").eq(2).css("background-color", "yellow");
-            $(".gomb").eq(4).css("background-color", "yellow");
-            lista[0] = 1
-            lista[1] = 1
-            lista[2] = 1
-            lista[4] = 1
-                
-        }
-    });
-    $(".gomb").eq(2).on("click", function(event) {
-        kattintasHang.play(`kattintasHang.wav`);
-        eredmeny();
-        let backgroundColor = $(".gomb").eq(2).css("background-color");
-        if (backgroundColor === "rgb(255, 255, 0)") {
-            $(".gomb").eq(2).css("background-color", "green");
-            $(".gomb").eq(1).css("background-color", "green");
-            $(".gomb").eq(5).css("background-color", "green");
-            lista[2] = 2
-            lista[1] = 2
-            lista[5] = 2
-        } else {
-            $(".gomb").eq(2).css("background-color", "yellow");
-            $(".gomb").eq(1).css("background-color", "yellow");
-            $(".gomb").eq(5).css("background-color", "yellow");
-            lista[2] = 1
-            lista[1] = 1
-            lista[5] = 1
-            
-        }
-    
-    });
-    $(".gomb").eq(3).on("click", function(event) {
-        kattintasHang.play(`kattintasHang.wav`);
-        eredmeny();
-        let backgroundColor = $(".gomb").eq(3).css("background-color");
-        if (backgroundColor === "rgb(255, 255, 0)") {
-            $(".gomb").eq(3).css("background-color", "green");
-            $(".gomb").eq(0).css("background-color", "green");
-            $(".gomb").eq(6).css("background-color", "green");
-            $(".gomb").eq(4).css("background-color", "green");
-            lista[3] = 2
-            lista[0] = 2
-            lista[6] = 2
-            lista[4] = 2
-        } else {
-            $(".gomb").eq(3).css("background-color", "yellow");
-            $(".gomb").eq(0).css("background-color", "yellow");
-            $(".gomb").eq(6).css("background-color", "yellow");
-            $(".gomb").eq(4).css("background-color", "yellow");
-            lista[3] = 1
-            lista[0] = 1
-            lista[6] = 1
-            lista[4] = 1
-                
-        }
-    });
-    $(".gomb").eq(4).on("click", function(event) {
-        kattintasHang.play(`kattintasHang.wav`);
-        eredmeny();
-        let backgroundColor = $(".gomb").eq(4).css("background-color");
-        if (backgroundColor === "rgb(255, 255, 0)") {
-            $(".gomb").eq(4).css("background-color", "green");
-            $(".gomb").eq(1).css("background-color", "green");
-            $(".gomb").eq(3).css("background-color", "green");
-            $(".gomb").eq(5).css("background-color", "green");
-            $(".gomb").eq(7).css("background-color", "green");
-            lista[4] = 2
-            lista[1] = 2
-            lista[3] = 2
-            lista[5] = 2
-            lista[7] = 2
-        } else {
-            $(".gomb").eq(4).css("background-color", "yellow");
-            $(".gomb").eq(1).css("background-color", "yellow");
-            $(".gomb").eq(3).css("background-color", "yellow");
-            $(".gomb").eq(5).css("background-color", "yellow");
-            $(".gomb").eq(7).css("background-color", "yellow");
-            lista[4] = 1
-            lista[1] = 1
-            lista[3] = 1
-            lista[5] = 1
-            lista[7] = 1
-                
-        }
-    });
-    $(".gomb").eq(5).on("click", function(event) {
-        kattintasHang.play(`kattintasHang.wav`);
-        eredmeny();
-        let backgroundColor = $(".gomb").eq(5).css("background-color");
-        if (backgroundColor === "rgb(255, 255, 0)") {
-            $(".gomb").eq(5).css("background-color", "green");
-            $(".gomb").eq(4).css("background-color", "green");
-            $(".gomb").eq(2).css("background-color", "green");
-            $(".gomb").eq(8).css("background-color", "green");
-            lista[5] = 2
-            lista[4] = 2
-            lista[2] = 2
-            lista[8] = 2
-        } else {
-            $(".gomb").eq(5).css("background-color", "yellow");
-            $(".gomb").eq(4).css("background-color", "yellow");
-            $(".gomb").eq(2).css("background-color", "yellow");
-            $(".gomb").eq(8).css("background-color", "yellow");
-            lista[5] = 1
-            lista[4] = 1
-            lista[2] = 1
-            lista[8] = 1
-                
-        }
-    });
-    $(".gomb").eq(6).on("click", function(event) {
-        kattintasHang.play(`kattintasHang.wav`);
-        eredmeny();
-        let backgroundColor = $(".gomb").eq(6).css("background-color");
-        if (backgroundColor === "rgb(255, 255, 0)") {
-            $(".gomb").eq(6).css("background-color", "green");
-            $(".gomb").eq(3).css("background-color", "green");
-            $(".gomb").eq(7).css("background-color", "green");
-            lista[6] = 2
-            lista[3] = 2
-            lista[7] = 2
-        } else {
-            $(".gomb").eq(6).css("background-color", "yellow");
-            $(".gomb").eq(3).css("background-color", "yellow");
-            $(".gomb").eq(7).css("background-color", "yellow");
-            lista[6] = 1
-            lista[3] = 1
-            lista[7] = 1
-            
-        }
-    
-    });
-    $(".gomb").eq(7).on("click", function(event) {
-        kattintasHang.play(`kattintasHang.wav`);
-        eredmeny();
-        let backgroundColor = $(".gomb").eq(7).css("background-color");
-        if (backgroundColor === "rgb(255, 255, 0)") {
-            $(".gomb").eq(7).css("background-color", "green");
-            $(".gomb").eq(4).css("background-color", "green");
-            $(".gomb").eq(6).css("background-color", "green");
-            $(".gomb").eq(8).css("background-color", "green");
-            lista[7] = 2
-            lista[4] = 2
-            lista[6] = 2
-            lista[8] = 2
-        } else {
-            $(".gomb").eq(7).css("background-color", "yellow");
-            $(".gomb").eq(4).css("background-color", "yellow");
-            $(".gomb").eq(6).css("background-color", "yellow");
-            $(".gomb").eq(8).css("background-color", "yellow");
-            lista[7] = 1
-            lista[4] = 1
-            lista[6] = 1
-            lista[8] = 1
-                
-        }
-    });
-    $(".gomb").eq(8).on("click", function(event) {
-        kattintasHang.play(`kattintasHang.wav`);
-        eredmeny();
-        let backgroundColor = $(".gomb").eq(8).css("background-color");
-        if (backgroundColor === "rgb(255, 255, 0)") {
-            $(".gomb").eq(8).css("background-color", "green");
-            $(".gomb").eq(5).css("background-color", "green");
-            $(".gomb").eq(7).css("background-color", "green");
-            lista[8] = 2
-            lista[5] = 2
-            lista[7] = 2
-        } else {
-            $(".gomb").eq(8).css("background-color", "yellow");
-            $(".gomb").eq(5).css("background-color", "yellow");
-            $(".gomb").eq(7).css("background-color", "yellow");
-            lista[8] = 1
-            lista[5] = 1
-            lista[7] = 1
-            
-        }
-    
-    });
-
+    eredmeny();
+   
+}
+function ellenkezeljereValt(index){
+    let backgroundColor = $(".gomb").eq(index).css("background-color");
+    if (backgroundColor === "rgb(255, 255, 0)") {
+        $(".gomb").eq(index).css("background-color", "green");
+       
+        lista[index] = 2
+       
+    } else {
+        $(".gomb").eq(index).css("background-color", "yellow");
+       
+        lista[index] = 1
+        
+    }
 }
 
 
